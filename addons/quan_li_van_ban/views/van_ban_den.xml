@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_van_ban_den_form" model="ir.ui.view">
+            <field name="name">van_ban_den.form</field>
+            <field name="model">van_ban_den</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_read_only" style="font-size:25px">Văn bản đến</div>
+                        <group col="4" string="Thông tin chung">
+                            <field name="so_den"/>
+                            <field name="so_ky_hieu"/>
+                            <field name="ngay_den"/>
+                            <field name="ngay_ban_hanh"/>
+                            <field name="co_quan_ban_hanh"/>
+                            <field name="loai_van_ban_id"/>
+                            <field name="nguoi_nhan"/>
+                            <field name="trang_thai"/>
+                        </group>
+                        <group string="Nội dung">
+                            <field name="trich_yeu" placeholder="Nhập trích yếu văn bản..."/>
+                        </group>
+                        <group string="Ghi chú">
+                            <field name="ghi_chu" placeholder="Nhập ghi chú..."/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_van_ban_den_tree" model="ir.ui.view">
+            <field name="name">van_ban_den.tree</field>
+            <field name="model">van_ban_den</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="so_den"/>
+                    <field name="so_ky_hieu"/>
+                    <field name="ngay_den"/>
+                    <field name="co_quan_ban_hanh"/>
+                    <field name="loai_van_ban_id"/>
+                    <field name="trang_thai"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="van_ban_den_search">
+            <field name="model">van_ban_den</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="so_den"/>
+                    <field name="so_ky_hieu"/>
+                    <field name="co_quan_ban_hanh"/>
+                    <field name="nguoi_nhan"/>
+                    <field name="loai_van_ban_id"/>
+                    <filter string="Mới" name="trang_thai_moi" domain="[('trang_thai', '=', 'moi')]"/>
+                    <filter string="Đang xử lý" name="trang_thai_dang_xu_ly" domain="[('trang_thai', '=', 'dang_xu_ly')]"/>
+                    <filter string="Hoàn thành" name="trang_thai_hoan_thanh" domain="[('trang_thai', '=', 'hoan_thanh')]"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_van_ban_den" model="ir.actions.act_window">
+            <field name="name">Văn bản đến</field>
+            <field name="res_model">van_ban_den</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="van_ban_den_search"/>
+        </record>
+    </data>
+</odoo>
+
