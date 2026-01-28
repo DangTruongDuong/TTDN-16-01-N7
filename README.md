@@ -26,7 +26,7 @@ Thông qua cơ chế liên thông dữ liệu giữa các phân hệ, toàn bộ
 
 Bên cạnh việc đáp ứng các yêu cầu quản lý cơ bản, hệ thống còn được bổ sung nhiều tiện ích nhằm gia tăng giá trị sử dụng, bao gồm tự động hóa các kịch bản chăm sóc khách hàng, hỗ trợ tiếp nhận và xử lý phản hồi – khiếu nại, tích hợp lịch làm việc với nền tảng Google Calendar, cũng như chatbot nội bộ phục vụ tra cứu nhanh các quy định và chính sách của doanh nghiệp. Những chức năng này giúp hệ thống tiệm cận hơn với môi trường làm việc thực tế và nâng cao mức độ thuận tiện cho người dùng.
 
-# Công nghệ sử dụng
+# 2. Công nghệ sử dụng
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![GitLab](https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
@@ -37,20 +37,20 @@ Bên cạnh việc đáp ứng các yêu cầu quản lý cơ bản, hệ thốn
 
 
 
-# 1. Cài đặt công cụ, môi trường và các thư viện cần thiết
+# 3. Cài đặt công cụ, môi trường và các thư viện cần thiết
 
-## 1.1. Clone project.
+## 3.1. Clone project.
 git clone https://gitlab.com/anhlta/odoo-fitdnu.git
 git checkout 
 
-## 1.2. cài đặt các thư viện cần thiết
+## 3.2. cài đặt các thư viện cần thiết
 
 Người sử dụng thực thi các lệnh sau đề cài đặt các thư viện cần thiết
 
 ```
 sudo apt-get install libxml2-dev libxslt-dev libldap2-dev libsasl2-dev libssl-dev python3.10-distutils python3.10-dev build-essential libssl-dev libffi-dev zlib1g-dev python3.10-venv libpq-dev
 ```
-## 1.3. khởi tạo môi trường ảo.
+## 3.3. khởi tạo môi trường ảo.
 
 `python3.10 -m venv ./venv`
 Thay đổi trình thông dịch sang môi trường ảo và chạy requirements.txt để cài đặt tiếp các thư viện được yêu cầu
@@ -60,15 +60,15 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-# 2. Setup database
+# 4. Setup database
 
 Khởi tạo database trên docker bằng việc thực thi file dockercompose.yml.
 
 `docker-compose up -d`
 
-# 3. Setup tham số chạy cho hệ thống
+# 5. Setup tham số chạy cho hệ thống
 
-## 3.1. Khởi tạo odoo.conf
+## 5.1. Khởi tạo odoo.conf
 
 Tạo tệp **odoo.conf** có nội dung như sau:
 
@@ -92,17 +92,17 @@ Ngoài ra có thể thêm mổ số parameters như:
 --dev=all giúp bật chế độ nhà phát triển 
 ```
 
-# 4. Chạy hệ thống và cài đặt các ứng dụng cần thiết
+# 66. Chạy hệ thống và cài đặt các ứng dụng cần thiết
 
 Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ để đăng nhập vào hệ thống.
 
 Hoàn tất
-# 5. Modul Nhân sự, Quản lý công việc, Quản lý khách hàng
+# 7. Modul Nhân sự, Quản lý công việc, Quản lý khách hàng
 # Các Module Tùy Chỉnh cho Odoo
 
 Dự án này bao gồm 3 module tùy chỉnh được phát triển cho công ty FITDNU, giúp quản lý nhân sự, khách hàng và công việc một cách hiệu quả.
 
-## 1. Module Nhân Sự (nhan_su)
+## 7.1. Module Nhân Sự (nhan_su)
 
 ### Giới thiệu
 Module này là nền tảng để quản lý thông tin nhân viên và chức vụ. Các module khác như quản lý công việc và khách hàng sẽ sử dụng dữ liệu từ đây.
@@ -120,7 +120,7 @@ Cài module này trước khi cài các module khác như `quan_ly_cong_viec` v�
 - Chuẩn hóa danh sách chức vụ để gợi ý nhân viên chính xác.
 - Thông tin nhân viên sẽ được sử dụng trong các module khác.
 
-## 2. Module Quản Lý Khách Hàng (quan_ly_khach_hang)
+## 7.2. Module Quản Lý Khách Hàng (quan_ly_khach_hang)
 
 ### Giới thiệu
 Module này giúp quản lý thông tin khách hàng, theo dõi giao dịch, hợp đồng, và tương tác với khách hàng. Phù hợp cho doanh nghiệp muốn theo dõi khách hàng tiềm năng và chăm sóc khách hàng tốt hơn.\
@@ -143,7 +143,7 @@ Module này giúp quản lý thông tin khách hàng, theo dõi giao dịch, h�
 - Ngày sinh không được là ngày tương lai.
 - Nếu là khách hàng doanh nghiệp, cần nhập tên công ty và mã số thuế.
 
-## 3. Module Quản Lý Công Việc (quan_ly_cong_viec)
+## 7.3. Module Quản Lý Công Việc (quan_ly_cong_viec)
 
 ### Giới thiệu
 Module này giúp quản lý dự án và công việc trong công ty. Bạn có thể tạo dự án, phân chia công việc, theo dõi tiến độ và giao tiếp qua chatbot.
