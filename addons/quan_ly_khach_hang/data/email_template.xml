@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Template email chúc mừng sinh nhật -->
+        <record id="mail_template_customer_birthday" model="mail.template">
+            <field name="name">Chúc mừng sinh nhật khách hàng</field>
+            <field name="model_id" ref="quan_ly_khach_hang.model_customer"/>
+            <field name="subject">Chúc mừng sinh nhật - {{ object.customer_name }}</field>
+            <field name="email_from">${user.email_formatted | safe}</field>
+            <field name="email_to">${object.email | safe}</field>
+            <field name="body_html"><![CDATA[
+                <div style="margin: 0px; padding: 0px;">
+                    <p>Kính gửi <strong>${object.customer_name}</strong>,</p>
+                    <p>Chúng tôi xin gửi lời chúc mừng sinh nhật tốt đẹp nhất đến bạn! 
+                    Chúc bạn một ngày sinh nhật thật vui vẻ, hạnh phúc và thành công.</p>
+                    <p>Cảm ơn bạn đã luôn đồng hành cùng chúng tôi.</p>
+                    <p>Trân trọng,<br/>
+                    Đội ngũ công ty chúng tôi</p>
+                </div>
+            ]]></field>
+        </record>
+        <!-- Thêm vào phần <data noupdate="1"> -->
+        <record id="mail_template_customer_welcome" model="mail.template">
+            <field name="name">Chào mừng khách hàng mới</field>
+            <field name="model_id" ref="quan_ly_khach_hang.model_customer"/>
+            <field name="subject">Chào mừng bạn đến với ${user.company_id.name} - {{ object.customer_name }}</field>
+            <field name="email_from">${user.email_formatted | safe}</field>
+            <field name="email_to">${object.email | safe}</field>
+            <field name="body_html"><![CDATA[
+                <div style="margin: 0px; padding: 0px;">
+                    <p>Kính gửi <strong>${object.customer_name}</strong>,</p>
+                    <p>Chào mừng bạn đến với công ty chúng tôi! 
+                    Chúng tôi rất vui được đồng hành cùng bạn trong hành trình sắp tới.</p>
+                    <p>Nếu bạn có bất kỳ câu hỏi nào, đừng ngần ngại liên hệ với chúng tôi qua email này hoặc số điện thoại 0916684356.</p>
+                    <p>Trân trọng,<br/>
+                    Đội ngũ công ty chúng tôi</p>
+                </div>
+            ]]></field>
+        </record>
+        
+        <!-- Template email cảnh báo hợp đồng sắp hết hạn -->
+        <record id="mail_template_contract_expiry_warning" model="mail.template">
+            <field name="name">Cảnh báo hợp đồng sắp hết hạn</field>
+            <field name="model_id" ref="quan_ly_khach_hang.model_contract"/>
+            <field name="subject">⚠️ Cảnh báo: Hợp đồng {{ object.contract_name }} sắp hết hạn</field>
+            <field name="email_from">${user.email_formatted | safe}</field>
+            <field name="email_to">${user.email_formatted | safe}</field>
+            <field name="body_html"><![CDATA[
+                <div style="margin: 0px; padding: 20px; font-family: Arial, sans-serif; background-color: #f5f5f5;">
+                    <div style="background-color: white; padding: 20px; border-radius: 5px; border-left: 4px solid #ff9800;">
+                        <h2 style="color: #ff9800; margin-top: 0;">⚠️ Cảnh Báo: Hợp Đồng Sắp Hết Hạn</h2>
+                        <p><strong>Mã hợp đồng:</strong> ${object.contract_id}</p>
+                        <p><strong>Tên hợp đồng:</strong> ${object.contract_name}</p>
+                        <p><strong>Khách hàng:</strong> ${object.customer_id.customer_name}</p>
+                        <p><strong>Ngày bắt đầu:</strong> ${object.start_date.strftime('%d/%m/%Y') if object.start_date else 'N/A'}</p>
+                        <p><strong>Ngày hết hạn:</strong> <span style="color: #f44336; font-weight: bold;">${object.end_date.strftime('%d/%m/%Y') if object.end_date else 'N/A'}</span></p>
+                        <p><strong>Số ngày còn lại:</strong> <span style="color: #f44336; font-weight: bold; font-size: 18px;">${object.days_until_expiry} ngày</span></p>
+                        <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+                        <p style="color: #666;">Vui lòng liên hệ với khách hàng để gia hạn hợp đồng trước khi hết hạn.</p>
+                        <p style="margin-top: 20px;">
+                            <a href="${ctx.get('base_url', '')}/web#id=${object.id}&model=contract&view_type=form" 
+                               style="background-color: #2196F3; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; display: inline-block;">
+                                Xem chi tiết hợp đồng
+                            </a>
+                        </p>
+                        <p style="color: #999; font-size: 12px; margin-top: 20px;">
+                            Email này được gửi tự động bởi hệ thống Odoo.
+                        </p>
+                    </div>
+                </div>
+            ]]></field>
+        </record>
+    </data>
+</odoo>
