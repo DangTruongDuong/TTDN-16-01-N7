@@ -173,6 +173,6 @@ Module này giúp quản lý dự án và công việc trong công ty. Bạn có
 3. `quan_ly_cong_viec`
 
 ## Tác Giả
-# Nhóm 7: CNTT16-01
+Nhóm 7: CNTT16-01
 Các module được phát triển cho công ty FITDNU.
     
