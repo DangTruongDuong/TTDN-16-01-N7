@@ -95,7 +95,8 @@ Cài module này trước khi cài các module khác như `quan_ly_cong_viec` v�
 ## 2. Module Quản Lý Khách Hàng (quan_ly_khach_hang)
 
 ### Giới thiệu
-Module này giúp quản lý thông tin khách hàng, theo dõi giao dịch, hợp đồng, và tương tác với khách hàng. Phù hợp cho doanh nghiệp muốn theo dõi khách hàng tiềm năng và chăm sóc khách hàng tốt hơn.
+Module này giúp quản lý thông tin khách hàng, theo dõi giao dịch, hợp đồng, và tương tác với khách hàng. Phù hợp cho doanh nghiệp muốn theo dõi khách hàng tiềm năng và chăm sóc khách hàng tốt hơn.\
+![Quản lý Khách hàng](image/qlkh.png)
 
 ### Tính năng chính
 - **Quản lý khách hàng**: Lưu thông tin cá nhân, công ty, thu nhập, trạng thái.
@@ -118,6 +119,7 @@ Module này giúp quản lý thông tin khách hàng, theo dõi giao dịch, h�
 
 ### Giới thiệu
 Module này giúp quản lý dự án và công việc trong công ty. Bạn có thể tạo dự án, phân chia công việc, theo dõi tiến độ và giao tiếp qua chatbot.
+![Quản lý công việc](image/qlcv.png)
 
 ### Tính năng chính
 - **Quản lý dự án**: Tạo dự án, chọn khách hàng, người phụ trách, nhân viên tham gia. Theo dõi tiến độ và deadline.
