@@ -174,5 +174,4 @@ Module này giúp quản lý dự án và công việc trong công ty. Bạn có
 
 ## Tác Giả
 Nhóm 7: CNTT16-01
-Các module được phát triển cho công ty FITDNU.
     
