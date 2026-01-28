@@ -119,7 +119,7 @@ Module này giúp quản lý thông tin khách hàng, theo dõi giao dịch, h�
 
 ### Giới thiệu
 Module này giúp quản lý dự án và công việc trong công ty. Bạn có thể tạo dự án, phân chia công việc, theo dõi tiến độ và giao tiếp qua chatbot.
-![Quản lý công việc](image/qlcv.png)
+![Quản lý công việc](image/qlcv1.png)
 
 ### Tính năng chính
 - **Quản lý dự án**: Tạo dự án, chọn khách hàng, người phụ trách, nhân viên tham gia. Theo dõi tiến độ và deadline.
