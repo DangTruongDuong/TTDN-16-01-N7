@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="chatbot_widget_template" name="Chatbot Widget">
+        <t t-name="quan_ly_cong_viec.ChatbotWidget">
+            <div class="o_chatbot_widget">
+                <button class="o_chatbot_button" type="button">
+                    <i class="fa fa-comments"/>
+                </button>
+                <div class="o_chatbot_window" style="display: none;">
+                    <div class="o_chatbot_header">
+                        <h3>Trợ lý AI</h3>
+                        <button class="o_chatbot_close" type="button">
+                            <i class="fa fa-times"/>
+                        </button>
+                    </div>
+                    <div class="o_chatbot_messages">
+                        <!-- Messages will be rendered by JavaScript -->
+                    </div>
+                    <div class="o_chatbot_input_area">
+                        <textarea class="o_chatbot_input" placeholder="Nhập câu hỏi của bạn..." rows="1"/>
+                        <button class="o_chatbot_send" type="button">
+                            <i class="fa fa-paper-plane"/>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

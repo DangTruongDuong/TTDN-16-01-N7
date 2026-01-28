@@ -1,0 +1,204 @@
+<odoo>
+    <!-- Graph view: Biểu đồ cột - Thống kê tổng quan từ dữ liệu thực tế -->
+    <record id="view_dashboard_statistics_bar" model="ir.ui.view">
+        <field name="name">dashboard.statistics.bar</field>
+        <field name="model">du_an</field>
+        <field name="arch" type="xml">
+            <graph string="Thống Kê Tổng Quan" type="bar">
+                <field name="ten_du_an" type="row"/>
+                <field name="phan_tram_du_an" type="measure"/>
+            </graph>
+        </field>
+    </record>
+    
+    <!-- Graph view: Biểu đồ tròn - Phân bổ trạng thái dự án -->
+    <record id="view_dashboard_status_pie" model="ir.ui.view">
+        <field name="name">dashboard.status.pie</field>
+        <field name="model">du_an</field>
+        <field name="arch" type="xml">
+            <graph string="Phân Bổ Trạng Thái Dự Án" type="pie">
+                <field name="tien_do_du_an" type="row"/>
+            </graph>
+        </field>
+    </record>
+    
+    <!-- Graph view: Biểu đồ cột - Số lượng công việc theo dự án -->
+    <record id="view_dashboard_cong_viec_bar" model="ir.ui.view">
+        <field name="name">dashboard.cong.viec.bar</field>
+        <field name="model">cong_viec</field>
+        <field name="arch" type="xml">
+            <graph string="Số Lượng Công Việc Theo Dự Án" type="bar">
+                <field name="du_an_id" type="row"/>
+            </graph>
+        </field>
+    </record>
+    
+    <!-- Action để hiển thị biểu đồ cột tổng quan -->
+    <record id="action_dashboard_statistics_bar" model="ir.actions.act_window">
+        <field name="name">Biểu Đồ Cột - Tiến Độ Dự Án</field>
+        <field name="res_model">du_an</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_dashboard_statistics_bar"/>
+    </record>
+    
+    <!-- Action để hiển thị biểu đồ tròn trạng thái -->
+    <record id="action_dashboard_status_pie" model="ir.actions.act_window">
+        <field name="name">Biểu Đồ Tròn - Phân Bổ Trạng Thái Dự Án</field>
+        <field name="res_model">du_an</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_dashboard_status_pie"/>
+    </record>
+    
+    <!-- Action để hiển thị biểu đồ cột công việc -->
+    <record id="action_dashboard_cong_viec_bar" model="ir.actions.act_window">
+        <field name="name">Biểu Đồ Cột - Số Lượng Công Việc Theo Dự Án</field>
+        <field name="res_model">cong_viec</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_dashboard_cong_viec_bar"/>
+    </record>
+
+    <record id="view_dashboard_form" model="ir.ui.view">
+        <field name="name">Dashboard View</field>
+        <field name="model">dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Dashboard">
+                <sheet>
+                    <!-- Phần số liệu tổng quan - Compact -->
+                    <div class="dashboard-stats-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px;">
+                        <div class="stat-card" style="padding: 15px; background: #E3F2FD; border-radius: 8px; text-align: center; border-left: 4px solid #2196F3;">
+                            <div style="font-size: 24px; font-weight: bold; color: #1976D2;">
+                                <field name="so_luong_nhan_vien" readonly="1" nolabel="1"/>
+                            </div>
+                            <div style="font-size: 12px; color: #666; margin-top: 5px;">Nhân Viên</div>
+                        </div>
+                        <div class="stat-card" style="padding: 15px; background: #E8F5E9; border-radius: 8px; text-align: center; border-left: 4px solid #4CAF50;">
+                            <div style="font-size: 24px; font-weight: bold; color: #388E3C;">
+                                <field name="so_luong_du_an" readonly="1" nolabel="1"/>
+                            </div>
+                            <div style="font-size: 12px; color: #666; margin-top: 5px;">Dự Án</div>
+                        </div>
+                        <div class="stat-card" style="padding: 15px; background: #FFF3E0; border-radius: 8px; text-align: center; border-left: 4px solid #FF9800;">
+                            <div style="font-size: 24px; font-weight: bold; color: #F57C00;">
+                                <field name="so_luong_cong_viec" readonly="1" nolabel="1"/>
+                            </div>
+                            <div style="font-size: 12px; color: #666; margin-top: 5px;">Công Việc</div>
+                        </div>
+                        <div class="stat-card" style="padding: 15px; background: #FCE4EC; border-radius: 8px; text-align: center; border-left: 4px solid #E91E63;">
+                            <div style="font-size: 24px; font-weight: bold; color: #C2185B;">
+                                <field name="so_luong_danh_gia" readonly="1" nolabel="1"/>
+                            </div>
+                            <div style="font-size: 12px; color: #666; margin-top: 5px;">Đánh Giá</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Phần trạng thái dự án - Compact -->
+                    <div class="dashboard-status-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 30px;">
+                        <div class="status-card" style="padding: 15px; background: #E8F5E9; border-radius: 8px; text-align: center; border-left: 4px solid #4CAF50;">
+                            <div style="font-size: 24px; font-weight: bold; color: #388E3C;">
+                                <field name="du_an_hoan_thanh" readonly="1" nolabel="1"/>
+                            </div>
+                            <div style="font-size: 12px; color: #666; margin-top: 5px;">Hoàn Thành</div>
+                        </div>
+                        <div class="status-card" style="padding: 15px; background: #E3F2FD; border-radius: 8px; text-align: center; border-left: 4px solid #2196F3;">
+                            <div style="font-size: 24px; font-weight: bold; color: #1976D2;">
+                                <field name="du_an_dang_thuc_hien" readonly="1" nolabel="1"/>
+                            </div>
+                            <div style="font-size: 12px; color: #666; margin-top: 5px;">Đang Thực Hiện</div>
+                        </div>
+                        <div class="status-card" style="padding: 15px; background: #FFF9C4; border-radius: 8px; text-align: center; border-left: 4px solid #FBC02D;">
+                            <div style="font-size: 24px; font-weight: bold; color: #F9A825;">
+                                <field name="du_an_chua_bat_dau" readonly="1" nolabel="1"/>
+                            </div>
+                            <div style="font-size: 12px; color: #666; margin-top: 5px;">Chưa Bắt Đầu</div>
+                        </div>
+                        <div class="status-card" style="padding: 15px; background: #FFEBEE; border-radius: 8px; text-align: center; border-left: 4px solid #F44336;">
+                            <div style="font-size: 24px; font-weight: bold; color: #D32F2F;">
+                                <field name="du_an_tam_dung" readonly="1" nolabel="1"/>
+                            </div>
+                            <div style="font-size: 12px; color: #666; margin-top: 5px;">Tạm Dừng</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Phần biểu đồ - 2 cột -->
+                    <div class="dashboard-charts-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                        <!-- Biểu đồ cột - Tiến độ dự án -->
+                        <div class="chart-container" style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <h3 style="margin-top: 0; margin-bottom: 15px; color: #333; font-size: 16px;">
+                                <i class="fa fa-bar-chart" style="margin-right: 8px; color: #2196F3;"/>
+                                Biểu Đồ Cột - Tiến Độ Dự Án
+                            </h3>
+                            <div style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                                <button name="%(action_dashboard_statistics_bar)d" 
+                                        string="Xem Biểu Đồ Cột" 
+                                        type="action"
+                                        class="btn btn-primary"
+                                        style="padding: 10px 20px; font-size: 14px;"/>
+                            </div>
+                        </div>
+                        
+                        <!-- Biểu đồ tròn - Trạng thái dự án -->
+                        <div class="chart-container" style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <h3 style="margin-top: 0; margin-bottom: 15px; color: #333; font-size: 16px;">
+                                <i class="fa fa-pie-chart" style="margin-right: 8px; color: #4CAF50;"/>
+                                Biểu Đồ Tròn - Phân Bổ Trạng Thái
+                            </h3>
+                            <div style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                                <button name="%(action_dashboard_status_pie)d" 
+                                        string="Xem Biểu Đồ Tròn" 
+                                        type="action"
+                                        class="btn btn-primary"
+                                        style="padding: 10px 20px; font-size: 14px;"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Biểu đồ cột - Công việc (Full width) -->
+                    <div class="chart-container-full" style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-top: 20px;">
+                        <h3 style="margin-top: 0; margin-bottom: 15px; color: #333; font-size: 16px;">
+                            <i class="fa fa-bar-chart" style="margin-right: 8px; color: #FF9800;"/>
+                            Biểu Đồ Cột - Số Lượng Công Việc Theo Dự Án
+                        </h3>
+                        <div style="min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                            <button name="%(action_dashboard_cong_viec_bar)d" 
+                                    string="Xem Biểu Đồ Công Việc" 
+                                    type="action"
+                                    class="btn btn-primary"
+                                    style="padding: 10px 20px; font-size: 14px;"/>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Dashboard view với graph mode -->
+    <record id="view_dashboard_graph" model="ir.ui.view">
+        <field name="name">dashboard.graph</field>
+        <field name="model">du_an</field>
+        <field name="arch" type="xml">
+            <graph string="Dashboard - Tiến Độ Dự Án" type="bar">
+                <field name="ten_du_an" type="row"/>
+                <field name="phan_tram_du_an" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Action chính cho dashboard - mở form view với đầy đủ thông tin -->
+    <record id="action_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+        <field name="domain">[(1, '=', 1)]</field>
+        <field name="limit">1</field>
+        <field name="context">{'create': True}</field>
+    </record>
+    
+    <!-- Action để mở dashboard với graph view -->
+    <record id="action_dashboard_graph_view" model="ir.actions.act_window">
+        <field name="name">Dashboard - Biểu Đồ</field>
+        <field name="res_model">du_an</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_dashboard_graph"/>
+    </record>
+</odoo>

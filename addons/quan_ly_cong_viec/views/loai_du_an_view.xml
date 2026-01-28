@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_loai_du_an_tree" model="ir.ui.view">
+        <field name="name">loai_du_an.tree</field>
+        <field name="model">loai_du_an</field>
+        <field name="arch" type="xml">
+            <tree string="Loại Dự Án">
+                <field name="ma_loai"/>
+                <field name="ten_loai"/>
+                <field name="chuc_vu_ids" widget="many2many_tags" string="Chức Vụ Yêu Cầu"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_loai_du_an_form" model="ir.ui.view">
+        <field name="name">loai_du_an.form</field>
+        <field name="model">loai_du_an</field>
+        <field name="arch" type="xml">
+            <form string="Loại Dự Án">
+                <sheet>
+                    <group col="4">
+                        <field name="ma_loai" required="1"/>
+                        <field name="ten_loai" required="1"/>
+                    </group>
+                    <group>
+                        <field name="mo_ta" placeholder="Mô tả về loại dự án này..."/>
+                    </group>
+                    <group string="Chức Vụ Yêu Cầu" col="4">
+                        <field name="chuc_vu_ids" 
+                               widget="many2many_tags" 
+                               help="Chọn các chức vụ cần thiết cho loại dự án này. Hệ thống sẽ tự động đề xuất nhân viên có chức vụ phù hợp khi tạo dự án."/>
+                    </group>
+                    <notebook>
+                        <page string="Danh Sách Công Việc Cấu Hình Sẵn">
+                            <group>
+                                <p class="text-muted">
+                                    <i class="fa fa-info-circle"/> 
+                                    Cấu hình danh sách công việc sẽ được tự động tạo khi tạo dự án thuộc loại này. 
+                                    Mỗi công việc sẽ được gán cho nhân viên có chức vụ tương ứng.
+                                </p>
+                            </group>
+                            <field name="cong_viec_cau_hinh_ids">
+                                <tree editable="bottom" default_order="sequence,id">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="ten_cong_viec" required="1"/>
+                                    <field name="chuc_vu_ids" required="1" 
+                                           widget="many2many_tags"
+                                           options="{'no_create': True}"
+                                           help="Các chức vụ sẽ được tự động phân công cho công việc này. Có thể chọn nhiều chức vụ."/>
+                                    <field name="mo_ta" placeholder="Mô tả chi tiết về công việc..."/>
+                                    <field name="active" widget="boolean_toggle"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Dự Án Thuộc Loại Này">
+                            <field name="du_an_ids">
+                                <tree>
+                                    <field name="ten_du_an"/>
+                                    <field name="khach_hang_id"/>
+                                    <field name="tien_do_du_an"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_loai_du_an_search" model="ir.ui.view">
+        <field name="name">loai_du_an.search</field>
+        <field name="model">loai_du_an</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ma_loai"/>
+                <field name="ten_loai"/>
+                <field name="chuc_vu_ids"/>
+                <filter string="Có chức vụ" name="has_chuc_vu" domain="[('chuc_vu_ids', '!=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_loai_du_an" model="ir.actions.act_window">
+        <field name="name">Loại Dự Án</field>
+        <field name="res_model">loai_du_an</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_loai_du_an_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tạo loại dự án mới
+            </p>
+            <p>
+                Loại dự án giúp hệ thống tự động đề xuất nhân viên phù hợp khi tạo dự án.
+                Ví dụ: Loại "Lập trình" sẽ tự động đề xuất các Developer.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_loai_du_an" 
+              name="Loại Dự Án" 
+              parent="menu_root_duan"
+              action="action_loai_du_an"
+              sequence="8"/>
+</odoo>
+
