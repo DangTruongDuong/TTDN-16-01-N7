@@ -92,7 +92,7 @@ Ngoài ra có thể thêm mổ số parameters như:
 --dev=all giúp bật chế độ nhà phát triển 
 ```
 
-# 66. Chạy hệ thống và cài đặt các ứng dụng cần thiết
+# 6. Chạy hệ thống và cài đặt các ứng dụng cần thiết
 
 Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ để đăng nhập vào hệ thống.
 
