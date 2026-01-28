@@ -20,12 +20,13 @@
 
 ## 1. Tổng quan về hệ thống
 
-Hệ thống được xây dựng trên nền tảng Odoo 15 nhằm hỗ trợ doanh nghiệp quản lý tập trung các nghiệp vụ cốt lõi, bao gồm quản lý nhân sự, quản lý khách hàng và quản lý công việc. Hệ thống được thiết kế theo mô hình ERP module hóa, cho phép các chức năng liên kết chặt chẽ với nhau, đồng thời đảm bảo tính linh hoạt, dễ mở rộng và phù hợp với nhu cầu quản lý thực tế của doanh nghiệp.
+Giải pháp được triển khai dựa trên nền tảng Odoo phiên bản 15, hướng tới việc xây dựng một hệ thống quản lý tổng thể cho doanh nghiệp. Hệ thống tập trung hỗ trợ các hoạt động vận hành quan trọng như quản lý nguồn nhân lực, quản lý quan hệ khách hàng và tổ chức công việc nội bộ. Kiến trúc hệ thống được thiết kế theo hướng phân tách chức năng, cho phép từng thành phần hoạt động độc lập nhưng vẫn kết nối với nhau trong một thể thống nhất.
 
-Trong hệ thống, mỗi nghiệp vụ được triển khai dưới dạng một module độc lập nhưng có khả năng tích hợp và chia sẻ dữ liệu. Nhờ đó, thông tin về nhân sự, khách hàng, công việc và phản hồi được quản lý đồng bộ, giúp nâng cao hiệu quả vận hành, giảm thao tác thủ công và hỗ trợ nhà quản lý trong quá trình theo dõi, đánh giá và ra quyết định.
+Thông qua cơ chế liên thông dữ liệu giữa các phân hệ, toàn bộ thông tin phát sinh trong quá trình làm việc được lưu trữ và xử lý tập trung. Điều này giúp doanh nghiệp dễ dàng kiểm soát luồng công việc, hạn chế sự trùng lặp dữ liệu, giảm phụ thuộc vào thao tác thủ công và nâng cao hiệu quả trong công tác quản lý, giám sát và đánh giá hoạt động.
 
-Bên cạnh các chức năng quản lý cơ bản, hệ thống còn tích hợp một số tính năng mở rộng như tự động hóa quy trình chăm sóc khách hàng, xử lý khiếu nại, đồng bộ lịch công việc với Google Calendar và chatbot nội quy hỗ trợ tra cứu quy định công ty. Các tính năng này góp phần nâng cao trải nghiệm người dùng và tiệm cận hơn với nhu cầu thực tế của doanh nghiệp hiện nay.
+Bên cạnh việc đáp ứng các yêu cầu quản lý cơ bản, hệ thống còn được bổ sung nhiều tiện ích nhằm gia tăng giá trị sử dụng, bao gồm tự động hóa các kịch bản chăm sóc khách hàng, hỗ trợ tiếp nhận và xử lý phản hồi – khiếu nại, tích hợp lịch làm việc với nền tảng Google Calendar, cũng như chatbot nội bộ phục vụ tra cứu nhanh các quy định và chính sách của doanh nghiệp. Những chức năng này giúp hệ thống tiệm cận hơn với môi trường làm việc thực tế và nâng cao mức độ thuận tiện cho người dùng.
 
+# Công nghệ sử dụng
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![GitLab](https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
