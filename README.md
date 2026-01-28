@@ -146,7 +146,7 @@ Module này giúp quản lý thông tin khách hàng, theo dõi giao dịch, h�
 ## 7.3. Module Quản Lý Công Việc (quan_ly_cong_viec)
 
 ### Giới thiệu
-Module này giúp quản lý dự án và công việc trong công ty. Bạn có thể tạo dự án, phân chia công việc, theo dõi tiến độ và giao tiếp qua chatbot.
+Module này giúp quản lý dự án và công việc trong công ty. có thể tạo dự án, phân chia công việc, theo dõi tiến độ và giao tiếp qua chatbot.
 ![Quản lý công việc](image/qlcv1.png)
 
 ### Tính năng chính
