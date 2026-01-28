@@ -78,7 +78,7 @@ Dự án này bao gồm 3 module tùy chỉnh được phát triển cho công t
 
 ### Giới thiệu
 Module này là nền tảng để quản lý thông tin nhân viên và chức vụ. Các module khác như quản lý công việc và khách hàng sẽ sử dụng dữ liệu từ đây.
-
+![Quản lý nhân sự](image/qlns.png)
 ### Tính năng chính
 - **Quản lý nhân viên**: Lưu thông tin cá nhân, liên hệ, chức vụ.
 - **Quản lý chức vụ**: Danh sách các vị trí trong công ty.
