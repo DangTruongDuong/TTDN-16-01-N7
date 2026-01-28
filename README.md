@@ -69,4 +69,79 @@ Ngoài ra có thể thêm mổ số parameters như:
 Người sử dụng truy cập theo đường dẫn _http://localhost:8069/_ để đăng nhập vào hệ thống.
 
 Hoàn tất
+# 5. Modul Nhân sự, Quản lý công việc, Quản lý khách hàng
+# Các Module Tùy Chỉnh cho Odoo
+
+Dự án này bao gồm 3 module tùy chỉnh được phát triển cho công ty FITDNU, giúp quản lý nhân sự, khách hàng và công việc một cách hiệu quả.
+
+## 1. Module Nhân Sự (nhan_su)
+
+### Giới thiệu
+Module này là nền tảng để quản lý thông tin nhân viên và chức vụ. Các module khác như quản lý công việc và khách hàng sẽ sử dụng dữ liệu từ đây.
+
+### Tính năng chính
+- **Quản lý nhân viên**: Lưu thông tin cá nhân, liên hệ, chức vụ.
+- **Quản lý chức vụ**: Danh sách các vị trí trong công ty.
+- **Lịch sử công tác**: Theo dõi quá trình làm việc của nhân viên.
+- **Chứng chỉ và bằng cấp**: Quản lý các chứng chỉ của nhân viên.
+
+### Cách cài đặt
+Cài module này trước khi cài các module khác như `quan_ly_cong_viec` và `quan_ly_khach_hang`.
+
+### Lưu ý
+- Chuẩn hóa danh sách chức vụ để gợi ý nhân viên chính xác.
+- Thông tin nhân viên sẽ được sử dụng trong các module khác.
+
+## 2. Module Quản Lý Khách Hàng (quan_ly_khach_hang)
+
+### Giới thiệu
+Module này giúp quản lý thông tin khách hàng, theo dõi giao dịch, hợp đồng, và tương tác với khách hàng. Phù hợp cho doanh nghiệp muốn theo dõi khách hàng tiềm năng và chăm sóc khách hàng tốt hơn.
+
+### Tính năng chính
+- **Quản lý khách hàng**: Lưu thông tin cá nhân, công ty, thu nhập, trạng thái.
+- **Giao dịch và hợp đồng**: Theo dõi đơn hàng, hợp đồng, cơ hội bán hàng.
+- **Tương tác**: Ghi lại các lần liên hệ với khách hàng.
+- **Phản hồi và ghi chú**: Thu thập feedback và ghi chú về khách hàng.
+- **Chiến dịch marketing**: Quản lý các chiến dịch để thu hút khách hàng.
+
+### Cách cài đặt
+1. Cài module `nhan_su` trước.
+2. Cài module này.
+3. Có thể cài thêm `quan_ly_cong_viec` để liên kết với dự án.
+
+### Lưu ý
+- Email và số điện thoại phải đúng định dạng.
+- Ngày sinh không được là ngày tương lai.
+- Nếu là khách hàng doanh nghiệp, cần nhập tên công ty và mã số thuế.
+
+## 3. Module Quản Lý Công Việc (quan_ly_cong_viec)
+
+### Giới thiệu
+Module này giúp quản lý dự án và công việc trong công ty. Bạn có thể tạo dự án, phân chia công việc, theo dõi tiến độ và giao tiếp qua chatbot.
+
+### Tính năng chính
+- **Quản lý dự án**: Tạo dự án, chọn khách hàng, người phụ trách, nhân viên tham gia. Theo dõi tiến độ và deadline.
+- **Công việc**: Chia công việc thành giai đoạn, gán cho nhân viên, ghi nhật ký làm việc.
+- **Đánh giá nhân viên**: Đánh giá hiệu suất của nhân viên trong dự án.
+- **Dashboard**: Xem tổng quan số dự án, công việc, tiến độ.
+- **Chatbot**: Hỏi nhanh về dự án, công việc qua chatbot tích hợp Gemini.
+
+### Cách cài đặt
+1. Cài module `nhan_su` trước.
+2. Cài module `quan_ly_khach_hang`.
+3. Cài module này.
+4. Cấu hình chatbot nếu muốn dùng.
+
+### Lưu ý
+- Tiến độ phải từ 0% đến 100%.
+- Khi dự án hoàn thành, công việc sẽ tự động chuyển sang giai đoạn hoàn thành.
+
+## Thứ Tự Cài Đặt Các Module
+Để tránh lỗi phụ thuộc, hãy cài theo thứ tự sau:
+1. `nhan_su`
+2. `quan_ly_khach_hang`
+3. `quan_ly_cong_viec`
+
+## Tác Giả
+Các module được phát triển cho công ty FITDNU.
     
