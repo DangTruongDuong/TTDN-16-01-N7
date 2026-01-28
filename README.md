@@ -1,4 +1,31 @@
----
+<h2 align="center">
+    <a href="https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin">
+    🎓 Faculty of Information Technology (DaiNam University)
+    </a>
+</h2>
+<h2 align="center">
+   Hệ thống quản lý khách hàng và công việc trên nền tảng Odoo 15
+</h2>
+<div align="center">
+    <p align="center">
+        <img src="images/aiotlab_logo.png" alt="AIoTLab Logo" width="170"/>
+        <img src="images/fitdnu_logo.png" alt="AIoTLab Logo" width="180"/>
+        <img src="images/dnu_logo.png" alt="DaiNam University Logo" width="200"/>
+    </p>
+
+[![AIoTLab](https://img.shields.io/badge/AIoTLab-green?style=for-the-badge)](https://www.facebook.com/DNUAIoTLab)
+[![Faculty of Information Technology](https://img.shields.io/badge/Faculty%20of%20Information%20Technology-blue?style=for-the-badge)](https://dainam.edu.vn/vi/khoa-cong-nghe-thong-tin)
+[![DaiNam University](https://img.shields.io/badge/DaiNam%20University-orange?style=for-the-badge)](https://dainam.edu.vn)
+</div>
+
+## 1. Tổng quan về hệ thống
+
+Hệ thống được xây dựng trên nền tảng Odoo 15 nhằm hỗ trợ doanh nghiệp quản lý tập trung các nghiệp vụ cốt lõi, bao gồm quản lý nhân sự, quản lý khách hàng và quản lý công việc. Hệ thống được thiết kế theo mô hình ERP module hóa, cho phép các chức năng liên kết chặt chẽ với nhau, đồng thời đảm bảo tính linh hoạt, dễ mở rộng và phù hợp với nhu cầu quản lý thực tế của doanh nghiệp.
+
+Trong hệ thống, mỗi nghiệp vụ được triển khai dưới dạng một module độc lập nhưng có khả năng tích hợp và chia sẻ dữ liệu. Nhờ đó, thông tin về nhân sự, khách hàng, công việc và phản hồi được quản lý đồng bộ, giúp nâng cao hiệu quả vận hành, giảm thao tác thủ công và hỗ trợ nhà quản lý trong quá trình theo dõi, đánh giá và ra quyết định.
+
+Bên cạnh các chức năng quản lý cơ bản, hệ thống còn tích hợp một số tính năng mở rộng như tự động hóa quy trình chăm sóc khách hàng, xử lý khiếu nại, đồng bộ lịch công việc với Google Calendar và chatbot nội quy hỗ trợ tra cứu quy định công ty. Các tính năng này góp phần nâng cao trải nghiệm người dùng và tiệm cận hơn với nhu cầu thực tế của doanh nghiệp hiện nay.
+
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![GitLab](https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
